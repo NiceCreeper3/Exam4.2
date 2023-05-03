@@ -42,6 +42,7 @@ namespace Exam4._2
 
     class GameSystem
     {
+        // makes a array with over player class
         private Player[] players;
         private int count;
 
@@ -81,6 +82,7 @@ namespace Exam4._2
         {
             // Find den rigtige position til indsættelse baseret på point
             int insertIndex = 0;
+
             while (insertIndex < count && points < players[insertIndex].Points)
             {
                 insertIndex++;
@@ -100,8 +102,11 @@ namespace Exam4._2
         public Player[] GetPlayersSortedByPoints()
         {
             Player[] sortedPlayers = new Player[count];
+
+            // makes a copy of the array 
             Array.Copy(players, sortedPlayers, count);
             Array.Sort(sortedPlayers, (p1, p2) => p2.Points.CompareTo(p1.Points));
+
             return sortedPlayers;
         }
 
